@@ -1,0 +1,10 @@
+<table>
+  <tr
+    *ngFor="let book of books; let i = index; let ev = even"
+    [ngClass]="{ even: ev }"
+  >
+    <td>{{ i }}</td>
+    <td>{{ book.title }}</td>
+    <td>{{ book.isbn }}</td>
+  </tr>
+</table>

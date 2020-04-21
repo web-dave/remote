@@ -1,3 +1,18 @@
 <kxyjd-navigation></kxyjd-navigation>
 <kxyjd-books></kxyjd-books>
 <router-outlet></router-outlet>
+<hr />
+<kxyjd-info-box></kxyjd-info-box>
+<kxyjd-mouse-cursor></kxyjd-mouse-cursor>
+<kxyjd-title-box
+  [myTitle]="i"
+  (boom)="rec($event)"
+  (user)="rec($event)"
+></kxyjd-title-box>
+
+<!-- <div>
+  <h1 *ngIf="false; else tach">Moin</h1>
+</div>
+<ng-template #tach>
+  <h3>Tach</h3>
+</ng-template> -->
