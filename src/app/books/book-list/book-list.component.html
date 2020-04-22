@@ -5,7 +5,9 @@
   >
     <td>{{ i }}</td>
     <td>{{ book.title }}</td>
-    <td>{{ book.isbn }}</td>
+    <td>
+      <a [routerLink]="book.isbn">{{ book.isbn }}</a>
+    </td>
   </tr>
 </table>
 <hr />

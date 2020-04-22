@@ -10,39 +10,7 @@ import { map } from 'rxjs/operators';
 export class BookService {
   root = 'http://localhost:4730/books/';
 
-  // private books: IBook[] = [
-  //   {
-  //     title: 'Design Patterns',
-  //     subtitle: 'Elements of Reusable Object-Oriented Software',
-  //     isbn: '1',
-  //   },
-  //   {
-  //     title: 'REST und HTTP',
-  //     subtitle: 'Entwicklung und Integration nach dem Architekturstil des Web',
-  //     isbn: '2',
-  //   },
-  //   {
-  //     title: 'Eloquent JavaScript',
-  //     subtitle: 'A Modern Introduction to Programming',
-  //     isbn: '3',
-  //   },
-  // ];
-  // b = {
-  //   title: 'Hurz',
-  //   subtitle: 'Das Lammmmmmmmm',
-  //   isbn: '4',
-  // };
-  // stream = new ReplaySubject<IBook[]>();
-  constructor(private http: HttpClient) {
-    // setTimeout(() => {
-    //   console.log('!');
-    //   this.stream.next([...this.books]);
-    //   // this.books.push(this.b);
-    // }, 300);
-    // setInterval(() => {
-    //   this.stream.next([...this.books]);
-    // }, 500);
-  }
+  constructor(private http: HttpClient) {}
   getBooks(): Observable<IBook[]> {
     return this.http.get<IBook[]>(this.root).pipe(
       map((data) =>
@@ -53,5 +21,8 @@ export class BookService {
       )
     );
     // return this.stream.asObservable();
+  }
+  getBook(isbn: string): Observable<IBook> {
+    return this.http.get<IBook>(this.root + isbn);
   }
 }
