@@ -1,6 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  AfterContentChecked,
+  AfterViewChecked,
+  Input,
+} from '@angular/core';
 import { IBook } from '../ibook';
 import { BookService } from '../book.service';
+import { Subscription, Subject, Observable } from 'rxjs';
+import { takeUntil, map } from 'rxjs/operators';
 
 @Component({
   selector: 'kxyjd-book-list',
@@ -8,16 +17,31 @@ import { BookService } from '../book.service';
   styleUrls: ['./book-list.component.scss'],
 })
 export class BookListComponent implements OnInit {
-  books: IBook[];
+  @Input() books: IBook[];
+  books$: Observable<IBook[]>;
   constructor(private service: BookService) {}
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.service.getBooks().subscribe(
-        (data) => (this.books = data),
-        (err) => console.error(err),
-        () => console.log('DONE!')
-      );
-    }, 1500);
+    this.books$ = this.service.getBooks();
   }
 }
+// console.log(this.sub);
+// sub: Subscription;
+// foo = 'bar';
+// end = new Subject();
+
+// ngOnDestroy(): void {
+//   this.end.next(1);
+//   console.log(this.sub);
+// }
+// this.sub = this.service
+//   .getBooks()
+//   .pipe(takeUntil(this.end))
+//   .subscribe(
+//     (data) => {
+//       console.log('data', data);
+//       this.books = data;
+//     },
+//     (err) => console.error(err),
+//     () => console.log('DONE!')
+//   );

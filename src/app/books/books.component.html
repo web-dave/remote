@@ -1,2 +1,3 @@
 <h3>Books</h3>
-<kxyjd-book-list></kxyjd-book-list>
+<button (click)="b = !b">hide</button>
+<kxyjd-book-list *ngIf="b" [books]="books$ | async"></kxyjd-book-list>
