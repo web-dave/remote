@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { PreloadDelayed } from './preload-delayed';
 
 const routes: Routes = [
   {
@@ -11,11 +12,28 @@ const routes: Routes = [
     path: 'books',
     loadChildren: () =>
       import('./books/books.module').then((m) => m.BooksModule),
+    data: {
+      preload: true,
+      delay: 3000,
+    },
+  },
+  {
+    path: 'about',
+    loadChildren: () =>
+      import('./about/about.module').then((m) => m.AboutModule),
+    data: {
+      preload: false,
+    },
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      enableTracing: true,
+      preloadingStrategy: PreloadDelayed,
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
