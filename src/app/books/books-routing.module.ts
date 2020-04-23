@@ -5,12 +5,14 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 
 const routes: Routes = [
   {
-    path: 'books',
+    path: '',
     component: BooksComponent,
-  },
-  {
-    path: 'books/:isbn',
-    component: BookDetailsComponent,
+    children: [
+      {
+        path: ':isbn',
+        component: BookDetailsComponent,
+      },
+    ],
   },
 ];
 

@@ -12,13 +12,13 @@ import { flatMap } from 'rxjs/operators';
 })
 export class BookDetailsComponent implements OnInit {
   book$: Observable<IBook>;
-  book;
+  book = 'Hallo';
   constructor(private service: BookService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     // tslint:disable-next-line:no-string-literal
     // this.book$ = this.service.getBook(this.route.snapshot.params.isbn);
-
+    console.log('Moin');
     this.route.params.subscribe(
       (params) => (this.book$ = this.service.getBook(params.isbn))
     );
