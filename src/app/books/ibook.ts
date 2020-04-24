@@ -1,4 +1,4 @@
-export interface IBook {
+export class IBook {
   title: string;
   subtitle: string;
   isbn: string;

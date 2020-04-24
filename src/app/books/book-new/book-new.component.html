@@ -1,0 +1,22 @@
+<p>book-new works!</p>
+<form [formGroup]="newbookform" (ngSubmit)="save()">
+  <!-- <input type="text" formControlName="title" />
+  <div [hidden]="newbookform.get('title').valid">⚡</div>
+  <br />
+  <input type="text" formControlName="abstract" />
+  <div [hidden]="">⚡</div>
+  <br /> -->
+  <div *ngFor="let c of ctrls">
+    <label [for]="c">{{ c }}</label>
+    <input type="text" [formControlName]="c" />
+    <div [hidden]="newbookform.get(c).valid">⚡</div>
+  </div>
+  <input type="checkbox" formControlName="client" />
+  <!-- <div formGroupName="publisher">
+    <input type="text" formControlName="url" />
+  </div> -->
+  <button type="submit">Save</button>
+</form>
+<pre>{{ newbookform.value | json }}</pre>
+<hr />
+<pre>{{ book | json }}</pre>

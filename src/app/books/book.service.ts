@@ -28,4 +28,7 @@ export class BookService {
   updateBook(book: IBook): Observable<IBook> {
     return this.http.put<IBook>(this.root + book.isbn, book);
   }
+  getNewBook(): IBook {
+    return new IBook();
+  }
 }
