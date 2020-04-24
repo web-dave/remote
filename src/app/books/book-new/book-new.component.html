@@ -12,9 +12,9 @@
     <div [hidden]="newbookform.get(c).valid">⚡</div>
   </div>
   <input type="checkbox" formControlName="client" />
-  <!-- <div formGroupName="publisher">
-    <input type="text" formControlName="url" />
-  </div> -->
+
+  <input type="text" formControlName="isbn" />
+  <pre>{{ newbookform.get("isbn").errors | json }}</pre>
   <button type="submit">Save</button>
 </form>
 <pre>{{ newbookform.value | json }}</pre>

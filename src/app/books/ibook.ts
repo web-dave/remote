@@ -1,14 +1,21 @@
 export class IBook {
-  title: string;
-  subtitle: string;
-  isbn: string;
-  abstract: string;
-  numPages: number;
-  author: string;
-  publisher: {
-    name: string;
-    url: string;
+  publisher = {
+    name: '',
+    url: '',
   };
-  id?: string;
-  cover: string;
+  constructor(
+    public title: string = '',
+    public subtitle: string = '',
+    public abstract: string = '',
+    public numPages: number = 0,
+    public author: string = '',
+    public id: string = '',
+    public cover: string = '',
+    publisher?,
+    public isbn: string = ''
+  ) {
+    if (publisher.name) {
+      this.publisher = publisher;
+    }
+  }
 }

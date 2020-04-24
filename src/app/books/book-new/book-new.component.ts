@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { BookService } from '../book.service';
 import { IBook } from '../ibook';
+import { isbnValidator } from './validators';
 
 @Component({
   selector: 'kxyjd-book-new',
@@ -18,7 +19,7 @@ export class BookNewComponent implements OnInit {
   book = {
     title: 'Design P@tternse',
     subtitle: 'Elements of Reusable Object-Oriented Software',
-    isbn: '978-0-24711-361-0',
+    isbn: null,
     abstract: 'Capturing ',
     numPages: 395,
     author: 'Erich Gamma / Richard Helm / Ralph E. Johnson / John Vlissides',
@@ -36,6 +37,7 @@ export class BookNewComponent implements OnInit {
       title: [this.book.title, [Validators.required]],
       abstract: [this.book.abstract],
       client: [false],
+      isbn: [null, [isbnValidator]],
     });
 
     const publisher = this.builder.group({
@@ -47,9 +49,9 @@ export class BookNewComponent implements OnInit {
     this.newbookform.addControl('subtitle', new FormControl());
     this.ctrls = this.getControls();
 
-    // this.newbookform
-    //   .get('client')
-    //   .valueChanges.subscribe((data) => this.role(data));
+    this.newbookform
+      .get('client')
+      .valueChanges.subscribe((data) => this.role(data));
   }
 
   getControls(): string[] {
@@ -74,5 +76,6 @@ export class BookNewComponent implements OnInit {
       ...this.newbookform.value,
     };
     console.log(b);
+    this.service.createBook(b).subscribe();
   }
 }
