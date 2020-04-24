@@ -19,10 +19,19 @@ import { takeUntil, map } from 'rxjs/operators';
 export class BookListComponent implements OnInit {
   @Input() books: IBook[];
   books$: Observable<IBook[]>;
+  foo = 1;
   constructor(private service: BookService) {}
 
   ngOnInit(): void {
     this.books$ = this.service.getBooks();
+    // setInterval(() => {
+    //   this.foo = 1;
+    // }, 1500);
+  }
+
+  addSomeFun(value: string) {
+    console.log(value);
+    return value + ' 🦄';
   }
 }
 // console.log(this.sub);
