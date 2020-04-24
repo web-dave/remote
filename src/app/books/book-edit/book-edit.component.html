@@ -1,0 +1,35 @@
+<p>book-edit works!</p>
+<form #form="ngForm" *ngIf="book$ | async as book" (ngSubmit)="save(book)">
+  <input
+    type="text"
+    [(ngModel)]="book.title"
+    required
+    name="title"
+    #title="ngModel"
+    (ngModelChange)="markus($event)"
+  />
+  <div [hidden]="!title.errors?.required || title.pristine">⚡</div>
+  <br />
+  <input
+    type="text"
+    [(ngModel)]="book.subtitle"
+    required
+    name="subtitle"
+    #subtitle="ngModel"
+  />
+  <div [hidden]="!subtitle.errors?.required || subtitle.pristine">⚡</div>
+  <br />
+  <input
+    type="text"
+    [(ngModel)]="book.author"
+    required
+    name="author"
+    #author="ngModel"
+  />
+  <div [hidden]="!author.errors?.required || author.pristine">⚡</div>
+  <br />
+  {{ form.value | json }}
+  <hr />
+  {{ book | json }}
+  <button type="submit">Save</button>
+</form>

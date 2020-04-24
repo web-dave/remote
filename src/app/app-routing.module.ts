@@ -17,20 +17,12 @@ const routes: Routes = [
       delay: 3000,
     },
   },
-  {
-    path: 'about',
-    loadChildren: () =>
-      import('./about/about.module').then((m) => m.AboutModule),
-    data: {
-      preload: false,
-    },
-  },
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-      enableTracing: true,
+      enableTracing: false,
       preloadingStrategy: PreloadDelayed,
     }),
   ],

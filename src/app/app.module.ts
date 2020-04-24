@@ -9,6 +9,7 @@ import { InfoBoxComponent } from './info-box/info-box.component';
 import { MouseCursorComponent } from './mouse-cursor/mouse-cursor.component';
 import { TitleBoxComponent } from './title-box/title-box.component';
 import { PreloadDelayed } from './preload-delayed';
+import { AboutModule } from './about/about.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { PreloadDelayed } from './preload-delayed';
     MouseCursorComponent,
     TitleBoxComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, AboutModule, HttpClientModule],
   providers: [PreloadDelayed],
   bootstrap: [AppComponent],
 })
