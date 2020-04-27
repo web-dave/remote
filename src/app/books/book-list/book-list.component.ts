@@ -29,7 +29,7 @@ export class BookListComponent implements OnInit {
     // }, 1500);
   }
 
-  addSomeFun(value: string) {
+  addSomeFun(value: number) {
     console.log(value);
     return value + ' 🦄';
   }

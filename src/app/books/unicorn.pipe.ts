@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'unicorn',
 })
 export class UnicornPipe implements PipeTransform {
-  transform(value: string): string {
+  transform(value: string | number): string {
     console.log('pipe', value);
     return value + ' 🦄';
   }
