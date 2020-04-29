@@ -7,6 +7,11 @@ const routes: Routes = [
     redirectTo: '/about',
     pathMatch: 'full',
   },
+  {
+    path: 'books',
+    loadChildren: () =>
+      import('./books/books.module').then((m) => m.BooksModule),
+  },
 ];
 
 @NgModule({
