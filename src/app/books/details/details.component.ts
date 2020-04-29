@@ -13,7 +13,7 @@ import { Observable, Subscription } from 'rxjs';
 export class DetailsComponent implements OnInit, OnDestroy {
   book$: Observable<IBook>;
   sub: Subscription;
-  jhghjg: number = 0;
+  jhghjg = 0;
   constructor(
     private route: ActivatedRoute,
     private service: BookService,

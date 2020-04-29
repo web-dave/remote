@@ -29,4 +29,8 @@ export class BookService {
     return this.http.get<IBook>(this.url + isbn);
     // .pipe(filter((b: IBook) => b.isbn !== undefined));
   }
+
+  updateBook(book: IBook) {
+    return this.http.put<IBook>(this.url + book.isbn, book);
+  }
 }
