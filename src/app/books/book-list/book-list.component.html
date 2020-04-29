@@ -2,8 +2,8 @@
 <ul *ngIf="books">
   <!-- <li *ngFor="let book of books">{{ book.title }}</li> -->
   <fgh-preview
-    *ngFor="let book of books"
-    [book]="book"
+    *ngFor="let b of books"
+    [book]="b"
     (bookselected)="moinBook($event)"
   ></fgh-preview>
 </ul>

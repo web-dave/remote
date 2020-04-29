@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { IBook } from '../ibook';
 
 @Component({
   selector: 'fgh-preview',
@@ -6,8 +7,11 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./preview.component.scss'],
 })
 export class PreviewComponent implements OnInit {
-  @Input() book;
-  @Output() bookselected = new EventEmitter();
+  @Output() bookselected = new EventEmitter<IBook>();
+  @Input() book: IBook;
+
+  foo: Hannes[] = ['Hannes kannes', 'Hannes, Wader'];
+
   constructor() {}
 
   ngOnInit(): void {}
@@ -17,3 +21,5 @@ export class PreviewComponent implements OnInit {
     this.bookselected.emit(this.book);
   }
 }
+
+export type Hannes = 'Hannes, Wader' | 'Hannes kannes';
