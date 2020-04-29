@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../book.service';
 import { IBook } from '../ibook';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'fgh-book-list',
@@ -9,13 +10,18 @@ import { IBook } from '../ibook';
 })
 export class BookListComponent implements OnInit {
   books: IBook[];
-  constructor(private service: BookService) {}
+  constructor(
+    public service: BookService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.service.getBooks().subscribe((data) => (this.books = data));
   }
 
-  moinBook(e) {
+  moinBook(e: IBook) {
     console.log(e);
+    this.router.navigate([e.isbn], { relativeTo: this.route });
   }
 }
