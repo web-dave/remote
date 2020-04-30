@@ -18,6 +18,7 @@ import { IsbnValidator, IsbnAsyncValidator } from './isbn.validator';
 })
 export class NewComponent implements OnInit {
   form: FormGroup;
+  saved = false;
   constructor(
     private builder: FormBuilder,
     private service: BookService,
@@ -41,9 +42,15 @@ export class NewComponent implements OnInit {
       .createBook(this.form.value)
       .pipe(retry(2))
       .subscribe(
-        (data) => this.router.navigate(['..'], { relativeTo: this.route }),
+        (data) => {
+          this.saved = true;
+          this.backToList();
+        },
         (err) => console.error('ERROR', err)
       );
+  }
+  backToList() {
+    this.router.navigate(['..'], { relativeTo: this.route });
   }
 
   addCover(e) {
@@ -52,5 +59,9 @@ export class NewComponent implements OnInit {
     } else {
       this.form.removeControl('cover');
     }
+  }
+
+  isSaved(): boolean {
+    return this.saved || this.form.pristine;
   }
 }

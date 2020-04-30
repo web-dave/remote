@@ -5,11 +5,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
-import { AboutModule } from './about/about.module';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
-  declarations: [AppComponent, NavComponent],
-  imports: [BrowserModule, AppRoutingModule, AboutModule, HttpClientModule],
+  declarations: [AppComponent, NavComponent, WelcomeComponent],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   schemas: [],
   providers: [],
   bootstrap: [AppComponent],
