@@ -33,10 +33,6 @@ export class NewComponent implements OnInit {
       numPages: [0],
       author: [''],
       isbn: ['', [IsbnValidator]],
-      publisher: this.builder.group({
-        name: [''],
-        url: [''],
-      }),
     });
     console.log(this.form.value);
   }

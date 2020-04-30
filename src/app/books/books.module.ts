@@ -11,6 +11,7 @@ import { PagesPipe } from './pages.pipe';
 import { HighlightDirective } from './highlight.directive';
 import { EditComponent } from './edit/edit.component';
 import { NewComponent } from './new/new.component';
+import { PublisherComponent } from './publisher/publisher.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { NewComponent } from './new/new.component';
     HighlightDirective,
     EditComponent,
     NewComponent,
+    PublisherComponent,
   ],
   exports: [BooksComponent],
   imports: [CommonModule, BooksRoutingModule, FormsModule, ReactiveFormsModule],
