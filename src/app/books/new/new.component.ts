@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BookService } from '../book.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { retry } from 'rxjs/operators';
-import { IsbnValidator } from './isbn.validator';
+import { IsbnValidator, IsbnAsyncValidator } from './isbn.validator';
 
 @Component({
   selector: 'fgh-new',
@@ -26,7 +26,7 @@ export class NewComponent implements OnInit {
       abstract: ['', [Validators.required, Validators.minLength(6)]],
       numPages: [0],
       author: [''],
-      isbn: ['', [IsbnValidator]],
+      isbn: ['', [], [IsbnAsyncValidator]],
       publisher: this.builder.group({
         name: [''],
         url: [''],
