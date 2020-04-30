@@ -7,7 +7,8 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "viewEncapsulation": "None"
         }
       },
       "root": "",
@@ -49,7 +50,7 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
+                  "maximumWarning": "100kb",
                   "maximumError": "5mb"
                 },
                 {
