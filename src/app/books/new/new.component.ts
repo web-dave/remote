@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  AbstractControl,
+  FormControl,
+} from '@angular/forms';
 import { BookService } from '../book.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { retry } from 'rxjs/operators';
@@ -26,12 +32,11 @@ export class NewComponent implements OnInit {
       abstract: ['', [Validators.required, Validators.minLength(6)]],
       numPages: [0],
       author: [''],
-      isbn: ['', [], [IsbnAsyncValidator]],
+      isbn: ['', [IsbnValidator]],
       publisher: this.builder.group({
         name: [''],
         url: [''],
       }),
-      cover: [''],
     });
     console.log(this.form.value);
   }
@@ -43,5 +48,13 @@ export class NewComponent implements OnInit {
         (data) => this.router.navigate(['..'], { relativeTo: this.route }),
         (err) => console.error('ERROR', err)
       );
+  }
+
+  addCover(e) {
+    if (e.target.checked) {
+      this.form.addControl('cover', new FormControl('foo'));
+    } else {
+      this.form.removeControl('cover');
+    }
   }
 }

@@ -42,6 +42,12 @@
       <input type="text" formControlName="url" />
     </div>
   </fieldset>
+  <input
+    type="checkbox"
+    style="margin-left: 200px;"
+    (click)="addCover($event)"
+  />
+  {{ form.value | json }}
 
   <button type="submit" [disabled]="!form.valid">Save</button>
 </form>
