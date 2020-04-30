@@ -1,0 +1,39 @@
+<p>new works!</p>
+<form [formGroup]="form" (ngSubmit)="saveBook()">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" id="title" formControlName="title" />
+    <div [hidden]="!form.get('title').hasError('required')">
+      Enter a title
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="abstract">Abstract</label>
+    <textarea
+      name="abstract"
+      id="abstract"
+      cols="30"
+      rows="10"
+      formControlName="abstract"
+    ></textarea>
+    <div [hidden]="!form.get('abstract').hasError('required')">
+      Enter a abstract
+    </div>
+    <div [hidden]="!form.get('abstract').hasError('minlength')">
+      Minl.
+    </div>
+  </div>
+
+  <fieldset formGroupName="publisher">
+    <div class="form-group">
+      <label>Name:</label>
+      <input type="text" formControlName="name" />
+    </div>
+    <div class="form-group">
+      <label>Url:</label>
+      <input type="text" formControlName="url" />
+    </div>
+  </fieldset>
+
+  <button type="submit" [disabled]="!form.valid">Save</button>
+</form>

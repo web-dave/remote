@@ -33,4 +33,10 @@ export class BookService {
   updateBook(book: IBook) {
     return this.http.put<IBook>(this.url + book.isbn, book);
   }
+
+  createBook(book: IBook) {
+    return this.http.post<IBook>(this.url, book);
+    // fehler provozieren
+    // return this.http.post<IBook>(this.url + 4711, book);
+  }
 }

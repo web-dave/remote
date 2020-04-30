@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BookService } from '../book.service';
 import { IBook } from '../ibook';
 
@@ -10,7 +10,11 @@ import { IBook } from '../ibook';
 })
 export class EditComponent implements OnInit {
   book: IBook;
-  constructor(private route: ActivatedRoute, private service: BookService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private service: BookService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.service
@@ -18,6 +22,10 @@ export class EditComponent implements OnInit {
       .subscribe((data) => (this.book = data));
   }
   saveBook() {
-    this.service.updateBook(this.book).subscribe();
+    this.service
+      .updateBook(this.book)
+      .subscribe(() =>
+        this.router.navigate(['..'], { relativeTo: this.route })
+      );
   }
 }
