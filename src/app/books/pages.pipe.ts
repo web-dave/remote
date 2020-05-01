@@ -9,5 +9,3 @@ export class PagesPipe implements PipeTransform {
     return `${prefix}: ${value}`;
   }
 }
-
-// Memoized
