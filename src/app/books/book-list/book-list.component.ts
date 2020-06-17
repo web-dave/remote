@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BookService } from '../book.service';
+import { IBook } from '../model/book.interface';
 
 @Component({
   selector: 'foo-book-list',
@@ -6,21 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./book-list.component.scss'],
 })
 export class BookListComponent implements OnInit {
-  books = [
-    {
-      title: 'Design Patterns',
-      subtitle: 'Elements of Reusable Object-Oriented Software',
-    },
-    {
-      title: 'REST und HTTP',
-      subtitle: 'Entwicklung und Integration nach dem Architekturstil des Web',
-    },
-    {
-      title: 'Eloquent JavaScript',
-      subtitle: 'A Modern Introduction to Programming',
-    },
-  ];
-  constructor() {}
+  books: IBook[];
+  constructor(private service: BookService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.service.getBooks().subscribe((data) => (this.books = data));
+  }
 }
