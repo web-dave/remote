@@ -1,0 +1,14 @@
+<p>info works!</p>
+<button (click)="isHidden = !isHidden">
+  {{ isHidden ? "come back" : "go away" }}
+</button>
+<div [hidden]="isHidden">
+  <h1>Moin!!!!</h1>
+</div>
+
+<div
+  style="height: 300px; width: 300px; border: solid black 2px;"
+  (mousemove)="moueMove($event)"
+>
+  {{ "x:" + x + " | y:" + y }}
+</div>
