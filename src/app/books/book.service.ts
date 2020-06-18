@@ -1,28 +1,20 @@
 import { Injectable } from '@angular/core';
 import { IBook } from './model/book.interface';
-import { Observable, of } from 'rxjs';
+import { Observable, of, interval } from 'rxjs';
+import { shareReplay } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BookService {
-  private books: IBook[] = [
-    {
-      title: 'Design Patterns',
-      subtitle: 'Elements of Reusable Object-Oriented Software',
-    },
-    {
-      title: 'REST und HTTP',
-      subtitle: 'Entwicklung und Integration nach dem Architekturstil des Web',
-    },
-    {
-      title: 'Eloquent JavaScript',
-      subtitle: 'A Modern Introduction to Programming',
-    },
-  ];
-  constructor() {}
+  url = 'http://localhost:4730/books/';
+  constructor(private http: HttpClient) {}
 
   getBooks(): Observable<IBook[]> {
-    return of(this.books);
+    return this.http.get<IBook[]>(this.url).pipe(shareReplay());
+  }
+  getBook(isbn: string): Observable<IBook> {
+    return this.http.get<IBook>(this.url + isbn);
   }
 }

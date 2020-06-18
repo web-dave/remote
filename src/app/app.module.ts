@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,19 +11,15 @@ import { InfoComponent } from './info/info.component';
 import { TitleBoxComponent } from './title-box/title-box.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavComponent,
-    InfoComponent,
-    TitleBoxComponent
-  ],
+  declarations: [AppComponent, NavComponent, InfoComponent, TitleBoxComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AboutModule,
-    BooksModule
+    BooksModule,
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,9 +1,19 @@
 <h3>Book List</h3>
 <div>
   <table>
-    <tr *ngFor="let book of books">
+    <thead>
+      <tr>
+        <th>Titel</th>
+        <th>Subtitle</th>
+        <th>ISBN</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let book of books$ | async">
       <td>{{ book.title }}</td>
       <td>{{ book.subtitle }}</td>
+      <td>
+        <a [routerLink]="book.isbn">{{ book.isbn }}</a>
+      </td>
     </tr>
   </table>
 </div>

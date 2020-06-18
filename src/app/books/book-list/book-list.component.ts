@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BookService } from '../book.service';
 import { IBook } from '../model/book.interface';
+import { Subscription, Observable } from 'rxjs';
 
 @Component({
   selector: 'foo-book-list',
@@ -8,10 +9,10 @@ import { IBook } from '../model/book.interface';
   styleUrls: ['./book-list.component.scss'],
 })
 export class BookListComponent implements OnInit {
-  books: IBook[];
+  books$: Observable<IBook[]>;
   constructor(private service: BookService) {}
 
   ngOnInit(): void {
-    this.service.getBooks().subscribe((data) => (this.books = data));
+    this.books$ = this.service.getBooks();
   }
 }
