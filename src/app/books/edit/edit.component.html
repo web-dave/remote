@@ -1,0 +1,33 @@
+<h3>Edit Book</h3>
+<form #form="ngForm" *ngIf="book$ | async as book" (ngSubmit)="save(book)">
+  <input
+    required
+    type="text"
+    [(ngModel)]="book.title"
+    name="title"
+    #title="ngModel"
+  />
+  <input
+    required
+    type="text"
+    [(ngModel)]="book.subtitle"
+    name="subtitle"
+    #subtitle="ngModel"
+  />
+  <input
+    required
+    type="text"
+    [(ngModel)]="book.author"
+    name="author"
+    #author="ngModel"
+  />
+  <input
+    required
+    type="text"
+    [(ngModel)]="book.abstract"
+    name="abstract"
+    #abstract="ngModel"
+  />
+  <button type="submit">Save</button>
+</form>
+<a routerLink="..">X</a>
