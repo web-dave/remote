@@ -1,9 +1,11 @@
 <p>new-book works!</p>
 <form [formGroup]="form" (ngSubmit)="save()">
   <input type="text" formControlName="title" />
+  <input type="text" formControlName="isbn" />
   <div formGroupName="publisher">
     <input type="text" formControlName="url" />
   </div>
   <button type="submit">Save</button>
 </form>
 <a routerLink="..">X</a>
+<pre>{{ form.value | json }}</pre>

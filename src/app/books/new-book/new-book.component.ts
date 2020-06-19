@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  AbstractControl,
+} from '@angular/forms';
 import { BookService } from '../book.service';
 
 @Component({
@@ -10,6 +15,7 @@ import { BookService } from '../book.service';
 export class NewBookComponent implements OnInit {
   form: FormGroup;
   publisher: FormGroup;
+  foo: AbstractControl;
   constructor(private builder: FormBuilder, private service: BookService) {}
 
   ngOnInit(): void {
@@ -27,6 +33,12 @@ export class NewBookComponent implements OnInit {
       publisher: this.publisher,
       cover: [''],
     });
+    this.form.get('isbn').setValue(123456789);
+    this.form.patchValue({
+      subtitle: 'Hurz',
+      abstract: 'Hurbelwonz',
+    });
+    this.form.get('isbn').valueChanges.subscribe((data) => console.log(data));
   }
   save() {
     this.service.createBook(this.form.value).subscribe();
