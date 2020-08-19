@@ -13,4 +13,8 @@ export class AppComponent {
       this.title = 'MOIN!';
     }, 1500);
   }
+
+  paff(e) {
+    console.log(e);
+  }
 }
