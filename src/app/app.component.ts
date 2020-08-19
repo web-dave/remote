@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'remote';
   kjh = 'qwertz';
+  book;
   constructor() {
     setTimeout(() => {
       this.title = 'MOIN!';

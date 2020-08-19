@@ -1,9 +1,12 @@
 <app-top-nav></app-top-nav>
 <app-title-box [title]="kjh" (ping)="paff($event)"></app-title-box>
-
-<app-books></app-books>
-{{ title }}
 <router-outlet></router-outlet>
-<app-info-box></app-info-box>
-<app-mouse></app-mouse>
-<!-- <app-mouse movedx="kjh"></app-mouse> -->
+<app-book-list></app-book-list>
+<app-books></app-books>
+
+<div *ngIf="false">
+  {{ title }}
+  <app-info-box></app-info-box>
+  <app-mouse></app-mouse>
+  <!-- <app-mouse movedx="kjh"></app-mouse> -->
+</div>
