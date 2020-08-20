@@ -13,10 +13,11 @@ export class BookService {
   constructor(private http: HttpClient) {}
 
   getBooks(): Observable<IBook[]> {
-    return this.http.get<IBook[]>(this.restroot).pipe(
-      tap((data) => console.log(data)),
-      delay(3000)
-    );
+    return this.http.get<IBook[]>(this.restroot);
+    // .pipe(
+    //   tap((data) => console.log(data)),
+    //   delay(3000)
+    // );
   }
   get_Books(): Observable<IBook[]> {
     const books: IBook[] = [
