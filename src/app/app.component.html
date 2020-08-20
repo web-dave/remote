@@ -1,7 +1,8 @@
 <app-top-nav></app-top-nav>
 <app-title-box [title]="kjh" (ping)="paff($event)"></app-title-box>
 <router-outlet></router-outlet>
-<app-book-list></app-book-list>
+<button (click)="s = !s"></button>
+<app-book-list *ngIf="s"></app-book-list>
 <app-books></app-books>
 
 <div *ngIf="false">

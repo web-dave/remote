@@ -1,31 +1,41 @@
 import { Injectable } from '@angular/core';
 import { IBook } from './ibook';
 import { Observable, of } from 'rxjs';
+import { delay, tap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BookService {
-  books: IBook[] = [
-    {
-      title: 'Design Patterns',
-      subtitle: 'Elements of Reusable Object-Oriented Software',
-      isbn: 1,
-    },
-    {
-      title: 'REST und HTTP',
-      subtitle: 'Entwicklung und Integration nach dem Architekturstil des Web',
-      isbn: 2,
-    },
-    {
-      title: 'Eloquent JavaScript',
-      subtitle: 'A Modern Introduction to Programming',
-      isbn: 3,
-    },
-  ];
-  constructor() {}
+  restroot = 'http://localhost:4730/books/';
+  // books: IBook[] = [
+  //   {
+  //     title: 'Design Patterns',
+  //     subtitle: 'Elements of Reusable Object-Oriented Software',
+  //     isbn: 1,
+  //   },
+  //   {
+  //     title: 'REST und HTTP',
+  //     subtitle: 'Entwicklung und Integration nach dem Architekturstil des Web',
+  //     isbn: 2,
+  //   },
+  //   {
+  //     title: 'Eloquent JavaScript',
+  //     subtitle: 'A Modern Introduction to Programming',
+  //     isbn: 3,
+  //   },
+  // ];
+  constructor(private http: HttpClient) {}
 
   getBooks(): Observable<IBook[]> {
-    return of(this.books);
+    return this.http.get<IBook[]>(this.restroot).pipe(
+      tap((data) => console.log(data)),
+      delay(3000)
+    );
+    // return of(this.books).pipe(
+    //   tap((data) => console.log(data)),
+    //   delay(3000)
+    // );
   }
 }

@@ -9,6 +9,7 @@ export class AppComponent {
   title = 'remote';
   kjh = 'qwertz';
   book;
+  s = true;
   constructor() {
     setTimeout(() => {
       this.title = 'MOIN!';
