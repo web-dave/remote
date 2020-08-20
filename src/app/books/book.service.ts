@@ -12,6 +12,10 @@ export class BookService {
 
   constructor(private http: HttpClient) {}
 
+  getBook(isbn: string): Observable<IBook> {
+    return this.http.get<IBook>(this.restroot + isbn);
+  }
+
   getBooks(): Observable<IBook[]> {
     return this.http.get<IBook[]>(this.restroot);
     // .pipe(

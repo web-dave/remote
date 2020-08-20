@@ -2,14 +2,16 @@
 <table>
   <thead>
     <tr>
-      <th *ngFor="let col of cols">{{ col | uppercase }}</th>
+      <th *ngFor="let col of cols | slice: 0:3">{{ col | uppercase }}</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let book of books">
       <td>{{ book.title }}</td>
       <td>{{ book.subtitle }}</td>
-      <td>{{ book.isbn }}</td>
+      <td>
+        <a [routerLink]="[book.isbn]">{{ book.isbn }}</a>
+      </td>
     </tr>
   </tbody>
 </table>
