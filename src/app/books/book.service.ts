@@ -23,6 +23,11 @@ export class BookService {
     //   delay(3000)
     // );
   }
+
+  createBook(book: IBook): Observable<IBook> {
+    return this.http.post<IBook>(this.restroot, book);
+  }
+
   get_Books(): Observable<IBook[]> {
     const books: IBook[] = [
       // {

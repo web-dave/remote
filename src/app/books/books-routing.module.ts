@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { BookListComponent } from './book-list/book-list.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { BooksComponent } from './books.component';
+import { NewBookComponent } from './new-book/new-book.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
       {
         path: '',
         component: BookListComponent,
+      },
+      {
+        path: 'new',
+        component: NewBookComponent,
       },
       {
         path: ':isbn',

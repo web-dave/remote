@@ -1,0 +1,21 @@
+<h3>New-Book!</h3>
+<form [formGroup]="newBookForm" (ngSubmit)="saveBook()">
+  <input type="text" formControlName="title" />
+  <input type="text" formControlName="author" />
+  <section formGroupName="publisher">
+    <input type="text" formControlName="name" />
+    <input type="text" formControlName="url" />
+  </section>
+  <button type="submit" [disabled]="!newBookForm.valid">
+    Save me if you can!
+  </button>
+  <input type="checkbox" [formControl]="check" />
+</form>
+<!-- <h1>{{ newBookForm.dirty }}</h1>
+{{ newBookForm.valid }} -->
+<pre>
+    {{ check.value }}
+  
+    {{ newBookForm.getRawValue() | json }}
+</pre>
+<!-- {{ newBookForm.pristine | json }} -->
