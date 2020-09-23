@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-workshop!';
+  i = 1;
+  constructor(){
+    setInterval(()=>{
+      this.i++;
+this.title = 'angular-workshop!' + this.i
+    },1500)
+  }
 }
