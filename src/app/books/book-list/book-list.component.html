@@ -1,0 +1,13 @@
+<h3>Book List</h3>
+<table>
+    <tr *ngFor="let book of books | slice:1:books.length">
+      <td>{{ book.title }}</td>
+      <td>{{ book.isbn }}</td>
+    </tr>
+</table>
+<table>
+    <tr *ngFor="let book of books">
+      <td>{{ book.title }}</td>
+      <td>{{ book.isbn }}</td>
+    </tr>
+</table>
