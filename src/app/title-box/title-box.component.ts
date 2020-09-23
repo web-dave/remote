@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'books-title-box',
@@ -7,13 +7,18 @@ import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/cor
 })
 export class TitleBoxComponent implements OnInit, OnChanges {
   @Input() boxTitle: string;
+  @Output() ping = new EventEmitter<string>();
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('--->',changes);
-    
+    console.log('--->',changes)
   }
 
   ngOnInit(): void {
+  }
+
+  sendPing(e){
+    console.log(e);
+    this.ping.emit('öskdjvhösadhfbv')
   }
 
 }

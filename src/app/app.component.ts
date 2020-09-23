@@ -9,9 +9,14 @@ export class AppComponent {
   title = 'angular-workshop!';
   i = 1;
   constructor(){
-    setInterval(()=>{
-      this.i++;
-this.title = 'angular-workshop!' + this.i
-    },1500)
+    // setInterval(()=>{
+    //   this.i++;
+    //   this.title = 'angular-workshop!' + this.i
+    // },1500)
+  }
+
+  pong(e:string){
+    console.log(e);
+    
   }
 }

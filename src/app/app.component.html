@@ -1,5 +1,6 @@
 <books-navigation></books-navigation>
 <app-books ></app-books>
-<books-title-box [boxTitle]="title"></books-title-box>
+<books-title-box [boxTitle]="title"
+ (ping)="pong($event)"></books-title-box>
 <books-info-box></books-info-box>
 <router-outlet></router-outlet>
