@@ -1,0 +1,7 @@
+<div 
+style="height: 400px; width: 400px; border: 1px solid" 
+(mousemove)="onMouseMoved($event)" ></div>
+x: {{x}} | y: {{y}}
+<button (click)="isHidden = !isHidden"> show/hide</button>
+<p [hidden]="isHidden">info-box works!</p>
+<span>Moin</span>
