@@ -1,6 +1,7 @@
 <books-navigation></books-navigation>
 <app-books ></app-books>
-<books-book-list ></books-book-list>
+<button (click)="foo = false">go</button>
+<books-book-list *ngIf="foo"></books-book-list>
 <books-title-box [boxTitle]="title"
  (ping)="pong($event)"></books-title-box>
 <books-info-box hidden></books-info-box>
