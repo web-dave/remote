@@ -6,15 +6,12 @@ import { BooksComponent } from './books/books.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BookDetailComponent } from './book-detail/book-detail.component';
-
+import { BookService } from './book.service';
 
 @NgModule({
   declarations: [BooksComponent, BookListComponent, BookDetailComponent],
   exports: [BooksComponent, BookListComponent],
-  imports: [
-    CommonModule,
-    HttpClientModule,
-    BooksRoutingModule,
-  ]
+  imports: [CommonModule, HttpClientModule, BooksRoutingModule],
+  providers: [BookService],
 })
-export class BooksModule { }
+export class BooksModule {}
