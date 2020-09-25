@@ -1,5 +1,9 @@
 <books-navigation></books-navigation>
 <router-outlet></router-outlet>
-<books-title-box [boxTitle]="title"
- (ping)="pong($event)" hidden></books-title-box>
+
+<books-title-box
+  [boxTitle]="title"
+  (ping)="pong($event)"
+  hidden
+></books-title-box>
 <books-info-box hidden></books-info-box>
