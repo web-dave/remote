@@ -1,14 +1,7 @@
 <h3>Book List</h3>
-<table *ngIf="(books$ | async) as booklist">
-    <tr *ngFor="let book of booklist">
-      <td>{{ book.title }}</td>
-      <td>{{ book.isbn }}</td>
-    </tr>
-    {{booklist}}
+<table *ngIf="books$ | async as booklist">
+  <tr *ngFor="let book of booklist">
+    <td>{{ book.title }}</td>
+    <td>{{ book.isbn }}</td>
+  </tr>
 </table>
-<!-- <table>
-    <tr *ngFor="let book of service.getBooks()">
-      <td>{{ book.title }}</td>
-      <td>{{ book.isbn }}</td>
-    </tr>
-</table> -->
