@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { BooksComponent } from './books/books.component';
+import { FalseGuard } from './false.guard';
+import { LeaveGuard } from './leave.guard';
 
 const routes: Routes = [
   {
@@ -16,6 +18,8 @@ const routes: Routes = [
       {
         path: ':isbn',
         component: BookDetailComponent,
+        canDeactivate: [FalseGuard, LeaveGuard],
+        canActivate: [LeaveGuard, FalseGuard],
         data: {
           books: [
             {
