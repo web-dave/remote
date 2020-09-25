@@ -15,4 +15,8 @@ export class BookService {
   getBooks(): Observable<IBook[]> {
     return this.http.get<IBook[]>(this.url).pipe(shareReplay());
   }
+
+  getBookByIsbn(isbn: string): Observable<IBook> {
+    return this.http.get<IBook>(this.url + isbn);
+  }
 }

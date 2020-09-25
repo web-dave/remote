@@ -16,6 +16,8 @@ export class BookListComponent implements OnInit, OnDestroy {
   constructor(public service: BookService) {}
 
   ngOnInit(): void {
+    console.log('Init');
+
     this.books$ = this.service.getBooks();
   }
 
