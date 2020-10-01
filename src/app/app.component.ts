@@ -9,6 +9,7 @@ export class AppComponent {
   title = 'remote';
   fooooo = 'Hurbelwonz';
   i = 0;
+  go = false;
   constructor() {
     // setInterval(() => {
     //   this.i++;

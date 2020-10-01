@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { interval, Observable, of } from 'rxjs';
 import { IBook } from './ibook';
 
 @Injectable({
@@ -30,5 +30,9 @@ export class BookService {
 
   getBookKeys(book: IBook): string[] {
     return Object.keys(book);
+  }
+
+  getPing() {
+    return interval(1500);
   }
 }
