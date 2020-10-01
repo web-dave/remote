@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'remote';
-  fooooo = 'Hurbelwonz';
   i = 0;
   go = false;
   constructor() {
@@ -15,8 +14,5 @@ export class AppComponent {
     //   this.i++;
     //   this.fooooo = 'Hurbelwonz' + this.i;
     // }, 1500);
-  }
-  pong(e: string) {
-    console.log(e);
   }
 }

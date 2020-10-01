@@ -6,7 +6,6 @@
     <th>ISBN</th>
   </tr>
   <tr *ngFor="let book of books | async">
-    <!-- <td *ngFor="let attr of bookAttr">{{ book[attr] }}</td> -->
     <td>{{ book.title }}</td>
     <td>{{ book.subtitle }}</td>
     <td>{{ book.isbn }}</td>

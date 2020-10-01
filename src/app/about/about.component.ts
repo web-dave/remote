@@ -3,13 +3,14 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss']
+  styleUrls: ['./about.component.scss'],
 })
 export class AboutComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+  fooooo = 'Hurbelwonz';
+  constructor() {}
+  pong(e: string) {
+    console.log(e);
   }
 
+  ngOnInit(): void {}
 }
