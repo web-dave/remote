@@ -1,18 +1,17 @@
 <h3>Book List</h3>
 <table>
   <tr>
-    <th *ngFor="let attr of bookAttr">{{ attr | uppercase }}</th>
+    <th>TITLE</th>
+    <th>SUBTITLE</th>
+    <th>ISBN</th>
   </tr>
-  <tr *ngFor="let book of books">
+  <tr *ngFor="let book of books | async">
     <!-- <td *ngFor="let attr of bookAttr">{{ book[attr] }}</td> -->
     <td>{{ book.title }}</td>
     <td>{{ book.subtitle }}</td>
     <td>{{ book.isbn }}</td>
   </tr>
 </table>
-<span *ngIf="bookAttr">
-  {{ bookAttr[1] }}
-</span>
 <h1>
-  <!-- {{ moin | json }} -->
+  {{ moin | async }}
 </h1>
