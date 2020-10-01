@@ -1,0 +1,16 @@
+<h3>Book List</h3>
+<table>
+  <tr>
+    <th *ngFor="let attr of bookAttr">{{ attr | uppercase }}</th>
+  </tr>
+  <tr *ngFor="let book of books">
+    <!-- <td *ngFor="let attr of bookAttr">{{ book[attr] }}</td> -->
+    <td>{{ book.title }}</td>
+    <td>{{ book.subtitle }}</td>
+    <td>{{ book.isbn }}</td>
+  </tr>
+</table>
+<span *ngIf="bookAttr">
+  {{ bookAttr[1] }}
+</span>
+{{ books[0].isbn }}

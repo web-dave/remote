@@ -7,5 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'remote';
-  fooooo;
+  fooooo = 'Hurbelwonz';
+  i = 0;
+  constructor() {
+    // setInterval(() => {
+    //   this.i++;
+    //   this.fooooo = 'Hurbelwonz' + this.i;
+    // }, 1500);
+  }
+  pong(e: string) {
+    console.log(e);
+  }
 }
