@@ -9,8 +9,13 @@ import { IBook } from './ibook';
 export class BookService {
   private url = 'http://localhost:4730/books/';
   constructor(private http: HttpClient) {}
+
   getBooks(): Observable<IBook[]> {
     return this.http.get<IBook[]>(this.url);
+  }
+
+  getBook(isbn: string): Observable<IBook> {
+    return this.http.get<IBook>(this.url + isbn);
   }
 
   getBookKeys(book: IBook): string[] {

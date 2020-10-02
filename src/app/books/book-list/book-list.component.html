@@ -8,7 +8,9 @@
   <tr *ngFor="let book of books | async">
     <td>{{ book.title }}</td>
     <td>{{ book.subtitle }}</td>
-    <td>{{ book.isbn }}</td>
+    <td>
+      <a [routerLink]="[book.isbn]">{{ book.isbn }}</a>
+    </td>
   </tr>
 </table>
 <h1>
