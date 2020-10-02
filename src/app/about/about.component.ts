@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BookService } from '../books/book.service';
 
 @Component({
   selector: 'app-about',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
   fooooo = 'Hurbelwonz';
-  constructor() {}
+  constructor(service: BookService) {
+    service.getPing();
+  }
   pong(e: string) {
     console.log(e);
   }
