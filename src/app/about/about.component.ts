@@ -7,6 +7,7 @@ import { BookService } from '../books/book.service';
   styleUrls: ['./about.component.scss'],
 })
 export class AboutComponent implements OnInit {
+  LL;
   fooooo = 'Hurbelwonz';
   constructor(service: BookService) {
     service.getPing();
@@ -15,5 +16,13 @@ export class AboutComponent implements OnInit {
     console.log(e);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    import('node_modules/leaflet/dist/leaflet.js').then((m) => {
+      window['L'] = m.default;
+      const map = window['L'].map('map', {
+        center: [51.505, -0.09],
+        zoom: 13,
+      });
+    });
+  }
 }
