@@ -21,6 +21,6 @@ export class EditComponent implements OnInit {
     });
   }
   save(b: IBook) {
-    this.service.update(b).subscribe();
+    this.service.updateBook(b).subscribe();
   }
 }

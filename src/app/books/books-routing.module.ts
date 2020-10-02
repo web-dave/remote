@@ -3,8 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { LeaveGuard } from '../leave.guard';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { BookListComponent } from './book-list/book-list.component';
-import { BooksComponent } from './books.component';
+import { BooksComponent } from './book/books.component';
 import { EditComponent } from './edit/edit.component';
+import { NewComponent } from './new/new.component';
 
 const routes: Routes = [
   {
@@ -16,15 +17,13 @@ const routes: Routes = [
         component: BookListComponent,
       },
       {
+        path: 'new',
+        component: NewComponent,
+      },
+      {
         path: ':isbn',
         component: BookDetailsComponent,
         canDeactivate: [LeaveGuard],
-        // children: [
-        //   {
-        //     path: 'edit',
-        //     component: EditComponent,
-        //   },
-        // ],
       },
       {
         path: ':isbn/edit',

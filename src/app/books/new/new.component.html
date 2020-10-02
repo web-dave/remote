@@ -1,0 +1,18 @@
+<h4>New Book</h4>
+<form [formGroup]="bookForm" (ngSubmit)="save()">
+  <input formControlName="title" /><br />
+  <input formControlName="subtitle" /><br />
+
+  <button [disabled]="!bookForm.valid" type="submit">💾</button>
+</form>
+<pre>{{ userForm.value | json }}</pre>
+<form [formGroup]="userForm">
+  <div
+    *ngFor="let user of users; let i = index"
+    formGroupName="{{ 'user' + (i + 1) }}"
+  >
+    <input formControlName="name" /><br />
+    <input formControlName="age" /><br />
+  </div>
+</form>
+<button (click)="addUser(user2)">🧍</button>

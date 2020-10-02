@@ -5,6 +5,9 @@
     <th>SUBTITLE</th>
     <th>ISBN</th>
   </tr>
+  <tr>
+    <td colspan="3"><button routerLink="new">➕</button></td>
+  </tr>
   <tr *ngFor="let book of books | async">
     <td>{{ book.title }}</td>
     <td>{{ book.subtitle }}</td>
@@ -14,8 +17,8 @@
   </tr>
 </table>
 <h6>
-  {{ getKeys(book) }}
+  {{ getKeys(i) }}
 </h6>
 <h6>
-  {{ book | keys }}
+  {{ i | keys }}
 </h6>
