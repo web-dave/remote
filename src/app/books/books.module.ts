@@ -7,10 +7,17 @@ import { BookListComponent } from './book-list/book-list.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { KeysPipe } from './keys.pipe';
 import { EditComponent } from './edit/edit.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [BooksComponent, BookListComponent, BookDetailsComponent, KeysPipe, EditComponent],
+  declarations: [
+    BooksComponent,
+    BookListComponent,
+    BookDetailsComponent,
+    KeysPipe,
+    EditComponent,
+  ],
   exports: [BooksComponent, BookListComponent],
-  imports: [CommonModule, BooksRoutingModule],
+  imports: [CommonModule, BooksRoutingModule, FormsModule],
 })
 export class BooksModule {}

@@ -1,1 +1,16 @@
-<p>edit works!</p>
+<h4>Edit Book</h4>
+<form *ngIf="book$ | async as book" #form="ngForm" (ngSubmit)="save(book)">
+  <input
+    type="text"
+    [(ngModel)]="book.title"
+    required
+    name="title"
+    #title="ngModel"
+  />
+  <div ngModelGroup="berlin">
+    <input ngModel name="user" />
+  </div>
+  {{ form.value | json }}
+
+  <button [disabled]="!form.valid" type="submit">save</button>
+</form>

@@ -4,6 +4,7 @@ import { LeaveGuard } from '../leave.guard';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { BooksComponent } from './books.component';
+import { EditComponent } from './edit/edit.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,16 @@ const routes: Routes = [
         path: ':isbn',
         component: BookDetailsComponent,
         canDeactivate: [LeaveGuard],
+        // children: [
+        //   {
+        //     path: 'edit',
+        //     component: EditComponent,
+        //   },
+        // ],
+      },
+      {
+        path: ':isbn/edit',
+        component: EditComponent,
       },
     ],
   },
