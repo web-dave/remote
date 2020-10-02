@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { BookService } from '../book.service';
 
 @Component({
@@ -7,14 +9,24 @@ import { BookService } from '../book.service';
   templateUrl: './new.component.html',
   styleUrls: ['./new.component.scss'],
 })
-export class NewComponent implements OnInit {
+export class NewComponent implements OnInit, OnDestroy {
   bookForm: FormGroup;
   userForm: FormGroup;
 
   users = [];
   user1 = { name: '', age: '' };
   user2 = { name: '', age: '' };
-  constructor(private builder: FormBuilder, private service: BookService) {}
+
+  sub = new Subscription();
+  constructor(
+    private builder: FormBuilder,
+    private service: BookService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
+  }
 
   ngOnInit(): void {
     this.bookForm = this.builder.group({
@@ -37,7 +49,13 @@ export class NewComponent implements OnInit {
     this.addUser(this.user1);
   }
   save() {
-    this.service.saveBook(this.bookForm.value).subscribe();
+    this.sub.add(
+      this.service
+        .saveBook(this.bookForm.value)
+        .subscribe((data) =>
+          this.router.navigate(['..', data.isbn], { relativeTo: this.route })
+        )
+    );
   }
   addUser(user) {
     this.users.push(user);

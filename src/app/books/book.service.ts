@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { interval, Observable } from 'rxjs';
+import { interval, Observable, of } from 'rxjs';
+import { delay, flatMap } from 'rxjs/operators';
 import { IBook } from './ibook';
 
 @Injectable({
@@ -18,8 +19,11 @@ export class BookService {
     return this.http.post<IBook>(this.url, b);
   }
 
-  updateBook(b: IBook) {
-    return this.http.put(this.url + b.isbn, b);
+  updateBook(b: IBook): Observable<IBook> {
+    return of(true).pipe(
+      delay(8000),
+      flatMap(() => this.http.put<IBook>(this.url + b.isbn, b))
+    );
   }
 
   getBook(isbn: string): Observable<IBook> {

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable, Subscription } from 'rxjs';
 import { BookService } from '../book.service';
 import { IBook } from '../ibook';
 
@@ -9,9 +9,17 @@ import { IBook } from '../ibook';
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss'],
 })
-export class EditComponent implements OnInit {
+export class EditComponent implements OnInit, OnDestroy {
   book$: Observable<IBook>;
-  constructor(private route: ActivatedRoute, private service: BookService) {}
+  sub = new Subscription();
+  constructor(
+    private route: ActivatedRoute,
+    private service: BookService,
+    private router: Router
+  ) {}
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
+  }
 
   ngOnInit(): void {
     console.log(this.route);
@@ -21,6 +29,12 @@ export class EditComponent implements OnInit {
     });
   }
   save(b: IBook) {
-    this.service.updateBook(b).subscribe();
+    this.sub.add(
+      this.service.updateBook(b).subscribe(
+        (data) =>
+          this.router.navigate(['..', data.isbn], { relativeTo: this.route }),
+        (err) => console.error(err)
+      )
+    );
   }
 }
