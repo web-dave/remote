@@ -6,6 +6,7 @@ import { BookService } from '../books/book.service';
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AboutComponent implements OnInit {
   LL;
@@ -22,12 +23,18 @@ export class AboutComponent implements OnInit {
     console.log(e);
   }
 
+  transform(value) {
+    console.log('method', value);
+
+    return value.toUpperCase();
+  }
+
   ngOnInit(): void {
-    setTimeout(() => {
-      this.user$.next({
-        name: 'user2',
-        age: 33,
-      });
+    setInterval(() => {
+      this.user = {
+        name: 'User2',
+        age: 833,
+      };
     }, 1500);
   }
 }
