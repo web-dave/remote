@@ -1,6 +1,6 @@
 <h3>About us:</h3>
 
-<div id="map" style="width: 100px; height: 100px"></div>
+<!-- <div id="map" style="width: 300px; height: 300px"></div> -->
 
-<app-title-box [title]="fooooo" (ping)="pong($event)"></app-title-box>
-<app-info-box></app-info-box>
+<app-title-box [title]="user$ | async" (ping)="pong($event)"></app-title-box>
+<!-- <app-info-box></app-info-box> -->

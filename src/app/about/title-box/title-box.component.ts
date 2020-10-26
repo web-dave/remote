@@ -1,4 +1,6 @@
 import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   EventEmitter,
   Input,
@@ -7,16 +9,19 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-title-box',
   templateUrl: './title-box.component.html',
   styleUrls: ['./title-box.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TitleBoxComponent implements OnInit, OnChanges {
-  @Input() title: string;
+  @Input() title: any = {};
+  user;
   @Output() ping = new EventEmitter<string>();
-  constructor() {}
+  constructor(private cdr: ChangeDetectorRef) {}
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
   }
@@ -24,5 +29,11 @@ export class TitleBoxComponent implements OnInit, OnChanges {
   inp(e) {
     this.ping.emit(e.target.value);
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // dispatch(ActionName({...title, age: 77}))
+    // this.title.subscribe((data) => {
+    //   this.user = data;
+    //   this.cdr.markForCheck();
+    // });
+  }
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { BookService } from '../books/book.service';
 
 @Component({
@@ -9,6 +10,11 @@ import { BookService } from '../books/book.service';
 export class AboutComponent implements OnInit {
   LL;
   fooooo = 'Hurbelwonz';
+  user = {
+    name: 'User',
+    age: 88,
+  };
+  user$ = new BehaviorSubject(this.user);
   constructor(service: BookService) {
     service.getPing();
   }
@@ -17,12 +23,11 @@ export class AboutComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    import('node_modules/leaflet/dist/leaflet.js').then((m) => {
-      window['L'] = m.default;
-      const map = window['L'].map('map', {
-        center: [51.505, -0.09],
-        zoom: 13,
+    setTimeout(() => {
+      this.user$.next({
+        name: 'user2',
+        age: 33,
       });
-    });
+    }, 1500);
   }
 }
