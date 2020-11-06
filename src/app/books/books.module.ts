@@ -9,6 +9,7 @@ import { EditComponent } from './edit/edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewComponent } from './new/new.component';
 import { BooksComponent } from './book/books.component';
+import { BookService } from './book.service';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { BooksComponent } from './book/books.component';
     EditComponent,
     NewComponent,
   ],
+  providers: [BookService],
   exports: [BooksComponent, BookListComponent],
   imports: [CommonModule, BooksRoutingModule, FormsModule, ReactiveFormsModule],
 })

@@ -6,8 +6,8 @@ import { Component, DoCheck, OnInit } from '@angular/core';
   styleUrls: ['./info-box.component.scss'],
 })
 export class InfoBoxComponent implements OnInit, DoCheck {
-  x: number = 0;
-  y: number = 0;
+  x = 0;
+  y = 0;
   isHidden = false;
   constructor() {}
   ngDoCheck(): void {

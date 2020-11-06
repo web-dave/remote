@@ -11,6 +11,12 @@ import {
 } from '@angular/core';
 import { Observable } from 'rxjs';
 
+/**
+ *
+ * <app-title-box [title]="variable"></app-title-box>
+ *
+ */
+
 @Component({
   selector: 'app-title-box',
   templateUrl: './title-box.component.html',

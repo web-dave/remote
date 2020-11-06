@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+} from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { BookService } from '../books/book.service';
 
@@ -16,7 +21,7 @@ export class AboutComponent implements OnInit {
     age: 88,
   };
   user$ = new BehaviorSubject(this.user);
-  constructor(service: BookService) {
+  constructor(service: BookService, private cdr: ChangeDetectorRef) {
     service.getPing();
   }
   pong(e: string) {
@@ -30,11 +35,13 @@ export class AboutComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('!!!');
     setInterval(() => {
       this.user = {
-        name: 'User2',
-        age: 833,
+        ...this.user,
+        age: 87,
       };
+      this.cdr.detectChanges();
     }, 1500);
   }
 }

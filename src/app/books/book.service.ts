@@ -4,9 +4,7 @@ import { interval, Observable, of } from 'rxjs';
 import { delay, flatMap } from 'rxjs/operators';
 import { IBook } from './ibook';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class BookService {
   private url = 'http://localhost:4730/books/';
   constructor(private http: HttpClient) {}
