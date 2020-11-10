@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "ally": "axe-core ./ally.test.js"
   },
   "private": true,
   "dependencies": {
@@ -19,6 +20,9 @@
     "@angular/platform-browser": "~10.1.2",
     "@angular/platform-browser-dynamic": "~10.1.2",
     "@angular/router": "~10.1.2",
+    "@types/axe-webdriverjs": "^2.3.0",
+    "axe-core": "^4.0.2",
+    "axe-webdriverjs": "^2.3.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
