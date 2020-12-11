@@ -1,2 +1,10 @@
 <p>about works!</p>
 <h1>Moin!</h1>
+<workshops-title-box
+  [tilde]="title"
+  (ping)="pong($event)"
+></workshops-title-box>
+<workshops-info-box></workshops-info-box>
+<workshops-mouse></workshops-mouse>
+
+<input type="text" [value]="title" (input)="title = $event.target.value" />

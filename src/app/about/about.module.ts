@@ -3,9 +3,17 @@ import { CommonModule } from '@angular/common';
 
 import { AboutRoutingModule } from './about-routing.module';
 import { AboutComponent } from './about.component';
+import { InfoBoxComponent } from './info-box/info-box.component';
+import { MouseComponent } from './mouse/mouse.component';
+import { TitleBoxComponent } from './title-box/title-box.component';
 
 @NgModule({
-  declarations: [AboutComponent],
+  declarations: [
+    AboutComponent,
+    InfoBoxComponent,
+    MouseComponent,
+    TitleBoxComponent,
+  ],
   exports: [AboutComponent],
   imports: [CommonModule, AboutRoutingModule],
 })
