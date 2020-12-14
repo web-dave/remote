@@ -1,5 +1,5 @@
 <h3>Booklist</h3>
-<table>
+<!-- <table>
   <tr
     *ngFor="
       let book of books;
@@ -18,4 +18,14 @@
     <td>{{ book.title }}</td>
     <td>{{ book.isbn }}</td>
   </tr>
+</table> -->
+<input type="text" (input)="searchStr = $event.target.value" />
+<table *ngIf="books$">
+  <tr *ngFor="let book of books$ | async | search: searchStr">
+    <td>{{ book.title }}</td>
+    <td>{{ book.isbn }}</td>
+  </tr>
+  <hr />
 </table>
+<h1>{{ "1.2345" | currency: "EUR" }}</h1>
+<pre>{{ books$ | async | json }}</pre>
