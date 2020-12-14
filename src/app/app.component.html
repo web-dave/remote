@@ -1,4 +1,5 @@
 <workshops-navigation></workshops-navigation> welcome to {{ title }}
 <workshops-books></workshops-books>
-<workshops-book-list></workshops-book-list>
+<button (click)="show = !show">hide?</button>
+<workshops-book-list *ngIf="show"></workshops-book-list>
 <router-outlet></router-outlet>
