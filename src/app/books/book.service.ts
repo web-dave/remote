@@ -7,23 +7,6 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class BookService {
-  books$ = of([
-    {
-      title: 'Design Patterns',
-      subtitle: 'Elements of Reusable Object-Oriented Software',
-      isbn: 1,
-    },
-    {
-      title: 'REST und HTTP',
-      subtitle: 'Entwicklung und Integration nach dem Architekturstil des Web',
-      isbn: 2,
-    },
-    {
-      title: 'Eloquent JavaScript',
-      subtitle: 'A Modern Introduction to Programming',
-      isbn: 3,
-    },
-  ]);
   baseUrl = 'http://localhost:4730/books/';
   constructor(private http: HttpClient) {}
   getBooks(): Observable<IBook[]> {
