@@ -5,9 +5,10 @@ import { BooksRoutingModule } from './books-routing.module';
 import { BooksComponent } from './books/books.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { SearchPipe } from './search.pipe';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
-  declarations: [BooksComponent, BookListComponent, SearchPipe],
+  declarations: [BooksComponent, BookListComponent, SearchPipe, DetailsComponent],
   exports: [BooksComponent, BookListComponent],
   imports: [CommonModule, BooksRoutingModule],
 })

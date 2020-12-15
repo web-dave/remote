@@ -24,6 +24,7 @@
   <tr *ngFor="let book of books$ | async | search: searchStr">
     <td>{{ book.title }}</td>
     <td>{{ book.isbn }}</td>
+    <td><a [routerLink]="[book.isbn]">👁</a></td>
   </tr>
   <hr />
 </table>

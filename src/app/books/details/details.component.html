@@ -1,0 +1,5 @@
+<h3>Bookdetails</h3>
+<div *ngIf="book$ | async as book">
+  <pre>{{ book | json }}</pre>
+</div>
+<a routerLink="..">BACK</a>
