@@ -1,0 +1,20 @@
+<form *ngIf="book$ | async as book" #form="ngForm">
+  <input
+    type="text"
+    [(ngModel)]="book.title"
+    name="title"
+    #title="ngModel"
+    required
+  />
+  {{ title.valid }}
+  <input
+    type="text"
+    [(ngModel)]="book.subtitle"
+    name="subtitle"
+    #subtitle="ngModel"
+  />
+  <hr />
+  <pre>{{ form.value | json }}</pre>
+  <hr />
+  <pre>{{ book | json }}</pre>
+</form>

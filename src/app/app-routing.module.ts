@@ -4,8 +4,18 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/books',
+    redirectTo: '/buecher',
     pathMatch: 'full',
+  },
+  {
+    path: 'buecher',
+    loadChildren: () =>
+      import('./books/books.module').then((es6m) => es6m.BooksModule),
+  },
+  {
+    path: 'about',
+    loadChildren: () =>
+      import('./about/about.module').then((es6m) => es6m.AboutModule),
   },
 ];
 

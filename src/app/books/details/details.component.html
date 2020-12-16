@@ -1,6 +1,8 @@
 <h3>Bookdetails</h3>
 <div *ngIf="book$ | async as book">
   <pre>{{ book | json }}</pre>
+
+  <a routerLink="edit">🖊</a>
 </div>
 <a routerLink="..">BACK</a>
-<a routerLink="/books/978-0-20163-361-0">ein anderes Buch</a>
+<a routerLink="978-0-20163-361-0">ein anderes Buch</a>
