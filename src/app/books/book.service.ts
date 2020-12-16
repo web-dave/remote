@@ -21,4 +21,7 @@ export class BookService {
   createBook(book: IBook): Observable<IBook> {
     return this.http.post<IBook>(this.baseUrl, book);
   }
+  delete(isbn: string) {
+    return this.http.delete<any>(this.baseUrl + isbn);
+  }
 }

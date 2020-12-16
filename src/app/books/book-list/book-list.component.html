@@ -30,6 +30,7 @@
     <td>{{ book.title }}</td>
     <td>{{ book.isbn }}</td>
     <td><a [routerLink]="[book.isbn]">👁</a></td>
+    <td><button (click)="delete(book.isbn)">X</button></td>
   </tr>
   <hr />
 </table>

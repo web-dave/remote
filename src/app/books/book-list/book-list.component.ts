@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import { BookService } from '../book.service';
 import { IBook } from '../ibook';
 
@@ -16,5 +17,10 @@ export class BookListComponent implements OnInit {
 
   ngOnInit(): void {
     this.books$ = this.service.getBooks();
+  }
+  delete(id) {
+    this.books$ = this.service
+      .delete(id)
+      .pipe(switchMap(() => this.service.getBooks()));
   }
 }
