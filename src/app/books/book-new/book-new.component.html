@@ -19,6 +19,9 @@
   <hr />
   <!-- <pre>{{ form.value | json }}</pre>
   <hr />-->
+  <div formGroupName="publisher">
+    <input type="text" formControlName="name" />
+  </div>
   <pre>{{ bookForm.value | json }}</pre>
   <button type="submit" [disabled]="!bookForm.valid">💾</button>
 </form>
