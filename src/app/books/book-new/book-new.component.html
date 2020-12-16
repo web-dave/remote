@@ -1,10 +1,10 @@
 <form [formGroup]="bookForm" (ngSubmit)="save()">
-  <input type="text" formControlName="title" />
+  <input type="text" formControlName="title" placeholder="title" />
   <span
     [hidden]="bookForm.get('title').valid || bookForm.get('title').untouched"
     >🎄</span
   >
-  <input type="text" formControlName="isbn" />
+  <input type="text" formControlName="isbn" placeholder="isbn" />
   <span [hidden]="bookForm.get('isbn').valid || bookForm.get('isbn').untouched"
     >🎅</span
   >
