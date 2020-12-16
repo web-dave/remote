@@ -21,6 +21,11 @@
 </table> -->
 <input type="text" (input)="searchStr = $event.target.value" />
 <table *ngIf="books$">
+  <tr>
+    <td></td>
+    <td></td>
+    <td><a routerLink="new">➕</a></td>
+  </tr>
   <tr *ngFor="let book of books$ | async | search: searchStr">
     <td>{{ book.title }}</td>
     <td>{{ book.isbn }}</td>

@@ -1,4 +1,4 @@
-<form *ngIf="book$ | async as book" #form="ngForm">
+<form *ngIf="book$ | async as book" #form="ngForm" (ngSubmit)="save(book)">
   <input
     type="text"
     [(ngModel)]="book.title"
@@ -6,15 +6,31 @@
     #title="ngModel"
     required
   />
-  {{ title.valid }}
+  <span [hidden]="!title.errors?.required || !title.touched">🎄</span>
   <input
     type="text"
-    [(ngModel)]="book.subtitle"
-    name="subtitle"
-    #subtitle="ngModel"
+    [(ngModel)]="book.abstract"
+    [ngModelOptions]="{ updateOn: 'blur' }"
+    name="abstract"
+    required
   />
+  <span
+    [hidden]="
+      !form.controls.abstract?.errors?.required ||
+      !form.controls.abstract?.touched
+    "
+    >🎅</span
+  >
+  <input type="text" [(ngModel)]="book.author" name="author" required />
+  <span
+    [hidden]="
+      !form.controls.author?.errors?.required || !form.controls.author.touched
+    "
+    >🐵</span
+  >
   <hr />
   <pre>{{ form.value | json }}</pre>
   <hr />
   <pre>{{ book | json }}</pre>
+  <button type="submit" [disabled]="!form.valid">💾</button>
 </form>

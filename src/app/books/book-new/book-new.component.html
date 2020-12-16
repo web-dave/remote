@@ -1,0 +1,24 @@
+<form [formGroup]="bookForm" (ngSubmit)="save()">
+  <input type="text" formControlName="title" />
+  <span
+    [hidden]="bookForm.get('title').valid || bookForm.get('title').untouched"
+    >🎄</span
+  >
+  <input type="text" formControlName="abstract" />
+  <span
+    [hidden]="
+      bookForm.get('abstract').valid || bookForm.get('abstract').untouched
+    "
+    >🎅</span
+  >
+  <input type="text" formControlName="author" />
+  <span
+    [hidden]="bookForm.get('author').valid || bookForm.get('author').untouched"
+    >🐵</span
+  >
+  <hr />
+  <!-- <pre>{{ form.value | json }}</pre>
+  <hr />-->
+  <pre>{{ bookForm.value | json }}</pre>
+  <button type="submit" [disabled]="!bookForm.valid">💾</button>
+</form>
