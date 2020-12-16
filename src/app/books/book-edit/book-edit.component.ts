@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, takeUntil } from 'rxjs/operators';
 import { BookService } from '../book.service';
 import { IBook } from '../ibook';
 
@@ -10,8 +10,9 @@ import { IBook } from '../ibook';
   templateUrl: './book-edit.component.html',
   styleUrls: ['./book-edit.component.scss'],
 })
-export class BookEditComponent implements OnInit {
+export class BookEditComponent implements OnInit, OnDestroy {
   book$: Observable<IBook>;
+  end$ = new Subject();
   constructor(private route: ActivatedRoute, private service: BookService) {}
 
   ngOnInit(): void {
@@ -21,6 +22,9 @@ export class BookEditComponent implements OnInit {
   }
   save(b: IBook) {
     console.log(b);
-    this.service.updateBook(b).subscribe();
+    this.service.updateBook(b).pipe(takeUntil(this.end$)).subscribe();
+  }
+  ngOnDestroy() {
+    this.end$.next(1);
   }
 }
