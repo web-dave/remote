@@ -4,11 +4,8 @@
     [hidden]="bookForm.get('title').valid || bookForm.get('title').untouched"
     >🎄</span
   >
-  <input type="text" formControlName="abstract" />
-  <span
-    [hidden]="
-      bookForm.get('abstract').valid || bookForm.get('abstract').untouched
-    "
+  <input type="text" formControlName="isbn" />
+  <span [hidden]="bookForm.get('isbn').valid || bookForm.get('isbn').untouched"
     >🎅</span
   >
   <input type="text" formControlName="author" />

@@ -15,4 +15,10 @@ export class BookService {
   getBook(isbn: string): Observable<IBook> {
     return this.http.get<IBook>(this.baseUrl + isbn);
   }
+  updateBook(book: IBook): Observable<IBook> {
+    return this.http.put<IBook>(this.baseUrl + book.isbn, book);
+  }
+  createBook(book: IBook): Observable<IBook> {
+    return this.http.post<IBook>(this.baseUrl, book);
+  }
 }
