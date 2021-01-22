@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { Injector, NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { MoinComponent } from './moin/moin.component';
+import { createCustomElement } from '@angular/elements';
 
 @NgModule({
   declarations: [AppComponent, MoinComponent],
@@ -10,4 +11,9 @@ import { MoinComponent } from './moin/moin.component';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(injector: Injector) {
+    const moin = createCustomElement(MoinComponent, { injector });
+    customElements.define('hi-ho', moin);
+  }
+}
