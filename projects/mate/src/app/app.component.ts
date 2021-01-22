@@ -10,4 +10,7 @@ export class AppComponent {
   onEvent(e: string) {
     console.log(e);
   }
+  knft(e: MouseEvent) {
+    console.log(e);
+  }
 }

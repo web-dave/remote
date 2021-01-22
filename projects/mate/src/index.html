@@ -9,6 +9,13 @@
   </head>
   <body>
     <hi-ho name="Hurbel Wonz"></hi-ho>
-    <app-root></app-root>
+
+    <script>
+      document.querySelector("hi-ho").addEventListener("highfive", console.log);
+
+      document
+        .querySelector("hi-ho")
+        .addEventListener("highfive", (event) => console.log(event));
+    </script>
   </body>
 </html>

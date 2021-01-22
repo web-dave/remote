@@ -1,1 +1,13 @@
-<moin-moin [name]="title" (highfive)="onEvent($event)"></moin-moin>
+<moin-moin
+  [name]="title"
+  (highfive)="onEvent($event)"
+  (click)="knft($event)"
+></moin-moin>
+
+<!-- 
+<script>
+events$
+  .pipe(filter(e => e.type === 'highfive'))
+  .subscribe($evnet => onEvent($event))
+
+</script> -->
